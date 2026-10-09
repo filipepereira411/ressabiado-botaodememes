@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão de Memes Instantâneo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Container do Botão Estilo Soundboard */
+        .meme-container {
+            text-align: center;
+        }
+
+        .meme-button {
+            width: 150px;
+            height: 150px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #b31c00, 0 15px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s ease;
+            outline: none;
+        }
+
+        /* Efeito de clique (Botão a Afundar) */
+        .meme-button:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 #b31c00, 0 8px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .meme-label {
+            margin-top: 15px;
+            color: #ffffff;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="meme-container">
+        <!-- O Botão que ativa o som -->
+        <button class="meme-button" onclick="tocarMeme()">SALAÇA!</button>
+        <div class="meme-label">Rapaz Exclamação</div>
+    </div>
+
+    <!-- Elemento de Áudio Oculto (Substitua o src pelo link do seu arquivo .mp3 ou .wav) -->
+    <audio id="audioMeme" src="https://soundhelix.com"></audio>
+
+    <script>
+        function tocarMeme() {
+            var audio = document.getElementById("audioMeme");
+            
+            // Reinicia o áudio se ele já estiver a tocar (para poder clicar várias vezes seguidas)
+            audio.currentTime = 0; 
+            
+            // Toca o som do meme
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
